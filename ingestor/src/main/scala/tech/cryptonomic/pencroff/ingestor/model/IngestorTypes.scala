@@ -24,7 +24,7 @@ object IngestorTypes {
     contentType: String = "",
     contentLength: Long = 0,
     nodeUrl: String = "",
-    nodeVersion: String = "UNKNOWN",
+    nodeVersion: String = "UNKNOWN", //TODO: Capture, Network, Chain Configuration version
     at: Instant = Instant.now()
   )
 
