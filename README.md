@@ -12,7 +12,7 @@ Named after Bonadventure Pencroff from https://en.wikipedia.org/wiki/The_Mysteri
 1. Open `<root>/ingestor/src/main/resources/reference.conf` in an editor. Set the `host`, `port` and `protocol` config items to point to a tezos node of your choice. Edit nothing else.
 1. In IntelliJ, run `BlockIngestor.scala`. It should automatically create the necessary tables and start ingesting data from the node you specified in the previous step.
 1. After a while in IntelliJ, run `DataServer.scala`. This runs a HTTP server that mimics the node's api. Note that all urls to this have a prefix to them, currently hard coded to `tezos`.
-1. Open postman, run a query the following queries `localhost:8080/tezos/chains/main/blocks/0` and `localhost:8080/tezos/chains/main/blocks/BLockGenesisGenesisGenesisGenesisGenesisd6f5afWyME7`. You should see identical output from these. Compare to the output from your configured tezos node. If everything matches you are good to start developing.
+1. Open postman, run the following queries `localhost:8080/tezos/chains/main/blocks/0` and `localhost:8080/tezos/chains/main/blocks/BLockGenesisGenesisGenesisGenesisGenesisd6f5afWyME7`. You should see identical output from these. Compare to the output from your configured tezos node. If everything matches you are good to start developing.
 
 
 # Early Load Test Results
@@ -30,7 +30,7 @@ Notes:
 
 ### TLDR Summary
 1. Sub second response across all tests
-1. Average RPS on 500 User test is 1470 Request / Second. Naively (and very incorrectly) this gives us an upper bound of 127 mil requests / day.
+1. Average RPS on 500 User test is 1470 Request / Second. *This, naively, and very incorrectly, gives us an upper bound of around 127 mil requests / day*.
 
 ### 5 Users / 100 Queries each
 ![Response time distribution](docs/loadtest/rt-5U-100Q.png)
