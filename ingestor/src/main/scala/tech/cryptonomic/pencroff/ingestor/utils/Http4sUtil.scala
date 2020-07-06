@@ -26,8 +26,8 @@ class Http4sUtil(config: HostConfig)(implicit val cs: ContextShift[IO], val time
 
   private val clientResource = BlazeClientBuilder[IO](global) //TODO: Pass in an execution context
     .withMaxTotalConnections(4)
-    .withRequestTimeout(Duration.apply(60, TimeUnit.SECONDS))
-    .withIdleTimeout(Duration.apply(120, TimeUnit.SECONDS))
+    .withRequestTimeout(Duration.apply(120, TimeUnit.SECONDS))
+    .withIdleTimeout(Duration.apply(180, TimeUnit.SECONDS))
     .resource
 
   def fetchAll(paths: List[String], attempts: Int = 1): IO[List[HttpResult]] =
