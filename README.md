@@ -27,15 +27,18 @@ Notes:
 1. X axis on response time graphs is milliseconds.
 1. No errors were reported.
 
+### TLDR Summary
+1. Sub second response across all tests
+1. Average RPS on 500 User test is 1470 Request / Second. Naively (and very incorrectly) this gives us an upper bound of 127 mil requests / day.
 
-## 5 Users / 100 Queries each
+### 5 Users / 100 Queries each
 ![Response time distribution](docs/loadtest/rt-5U-100Q.png)
 ![Requests per second](docs/loadtest/rps-5U-100Q.png)
 
-## 50 Users / 100 Queries each
+### 50 Users / 100 Queries each
 ![Response time distribution](docs/loadtest/rt-50U-100Q.png)
 ![Requests per second](docs/loadtest/rps-50U-100Q.png)
 
-## 500 Users / 100 Queries each
+### 500 Users / 100 Queries each
 ![Response time distribution](docs/loadtest/rt-500U-100Q.png)
 ![Requests per second](docs/loadtest/rps-500U-100Q.png)
