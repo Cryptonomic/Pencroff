@@ -30,7 +30,7 @@ Notes:
 
 ### TLDR Summary
 1. Sub second response across all tests
-1. Average RPS on 500 User test is 1470 Request / Second. *This, naively, and very incorrectly, gives us an upper bound of around 127 mil requests / day*.
+1. Average RPS on 500 User test is 1470 Request / Second. *This, naively and very incorrectly, gives us an upper bound of around 127 mil requests / day*.
 
 ### 5 Users / 100 Queries each
 ![Response time distribution](docs/loadtest/rt-5U-100Q.png)
