@@ -13,6 +13,7 @@ Named after Bonadventure Pencroff from https://en.wikipedia.org/wiki/The_Mysteri
 1. In IntelliJ, run `BlockIngestor.scala`. It should automatically create the necessary tables and start ingesting data from the node you specified in the previous step.
 1. After a while in IntelliJ, run `DataServer.scala`. This runs a HTTP server that mimics the node's api. Note that all urls to this have a prefix to them, currently hard coded to `tezos`.
 1. Open postman, run the following queries `localhost:8080/tezos/chains/main/blocks/0` and `localhost:8080/tezos/chains/main/blocks/BLockGenesisGenesisGenesisGenesisGenesisd6f5afWyME7`. You should see identical output from these. Compare to the output from your configured tezos node. If everything matches you are good to start developing.
+1. See `ingestor/src/main/resources/tezos.json` for the model that the Ingestor is using to fetch data using.
 
 
 # Early Load Test Results
