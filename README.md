@@ -13,3 +13,29 @@ Named after Bonadventure Pencroff from https://en.wikipedia.org/wiki/The_Mysteri
 1. In IntelliJ, run `BlockIngestor.scala`. It should automatically create and start ingesting data from the node you specified in the previous step.
 1. After a while in IntelliJ, run `DataServer.scala`. This runs an HTTP server that mimics the node's api. Note that all urls to this have a prefix to them, currently hard coded to `tezos`.
 1. Open postman, run a query the following queries `localhost:8080/tezos/chains/main/blocks/0` and `localhost:8080/tezos/chains/main/blocks/BLockGenesisGenesisGenesisGenesisGenesisd6f5afWyME7`. You should see identical output from these. Compare to the output from your configured tezos node. If everything matches you are good to start developing.
+
+
+# Early Load Test Results
+
+No suitable Tz node was available to test against. Pencroff results follow:
+
+Notes:
+1. Each simulated user fetches 100 random blocks between 0 and 350.
+1. After each fetch, the simulated user waits for 25 milliseconds before querying again.
+1. Kudu cluster is running dockerized inside a virtual machine.
+1. VM has 8 gigs, 8 virtual CPU cores, running ArchLinux, kernel 5.7.6.
+1. X axis on response time graphs is milliseconds.
+1. No errors were reported.
+
+
+## 5 Users / 100 Queries each
+![Response time distribution](docs/loadtest/rt-5U-100Q.png)
+![Requests per second](docs/loadtest/rps-5U-100Q.png)
+
+## 50 Users / 100 Queries each
+![Response time distribution](docs/loadtest/rt-50U-100Q.png)
+![Requests per second](docs/loadtest/rps-50U-100Q.png)
+
+## 500 Users / 100 Queries each
+![Response time distribution](docs/loadtest/rt-500U-100Q.png)
+![Requests per second](docs/loadtest/rps-500U-100Q.png)
