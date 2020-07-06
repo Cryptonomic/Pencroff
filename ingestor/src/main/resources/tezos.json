@@ -1,0 +1,55 @@
+{
+  "chain-version": "carthagenet",
+  "expected-block-time": "5s",
+  "head-token": "head",
+  "name": "tezos",
+  "sources": [
+    {
+      "name": "block",
+      "order": 0,
+      "outputs": [
+        {
+          "name": "hash",
+          "paths": [
+            "hash"
+          ],
+          "type": "path-attribute"
+        },
+        {
+          "name": "height",
+          "paths": [
+            "header.level"
+          ],
+          "type": "path-attribute"
+        }
+      ],
+      "pattern": "chains/main/blocks/{height}",
+      "aliases": [
+        "chains/main/blocks/{hash}"
+      ]
+    },
+    {
+      "name": "operations",
+      "order": 1,
+      "outputs": [
+        {
+          "attributes": [
+            "contract",
+            "delegate",
+            "baker"
+          ],
+          "name": "contracthash",
+          "type": "leaf-attribute"
+        }
+      ],
+      "pattern": "chains/main/blocks/{hash}/operations"
+    },
+    {
+      "name": "contract",
+      "order": 2,
+      "outputs": [],
+      "pattern": "chains/main/blocks/{hash}/context/contracts/{contracthash}",
+      "skip-on-failure": true
+    }
+  ]
+}
