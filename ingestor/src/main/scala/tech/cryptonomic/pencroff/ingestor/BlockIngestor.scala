@@ -95,9 +95,9 @@ object BlockIngestor extends App with LazyLogging {
     for {
       kuduStorage <- IO(new KuduStorage(kuduConfiguration))
       _ <- kuduStorage.init()
-      _ <- kuduStorage.dropTable(kuduConfiguration.table)
-      _ <- kuduStorage.dropTable(kuduConfiguration.metaTable)
-      _ <- kuduStorage.dropTable(kuduConfiguration.aliasTable)
+      //_ <- kuduStorage.dropTable(kuduConfiguration.table)
+      //_ <- kuduStorage.dropTable(kuduConfiguration.metaTable)
+      //_ <- kuduStorage.dropTable(kuduConfiguration.aliasTable)
       state <- kuduStorage.isStorageInitialized()
       _ <- if (state) IO.unit else kuduStorage.initStorage() *> kuduStorage.putMetaData(genesisMetaRecord)
     } yield {
