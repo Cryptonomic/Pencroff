@@ -20,6 +20,7 @@ Named after Bonadventure Pencroff from https://en.wikipedia.org/wiki/The_Mysteri
 No suitable Tz node was available to test against. Pencroff results follow:
 
 Notes:
+1. All tests peformed locally.
 1. Each simulated user runs 100 queries, each fetching a random block between 0 and 350.
 1. After each fetch, the simulated user waits for 25 milliseconds before querying again.
 1. Kudu cluster is running dockerized inside a virtual machine.
