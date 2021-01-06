@@ -1,5 +1,5 @@
 # Pencroff
-A forever cache/meta-indexer for blockchains
+A forever cache/meta-indexer for blockchains. This is experimental and work in progress and should not be deployed to production without understanding what it is.
 
 # Development quickstart instructions (testnet)
 
