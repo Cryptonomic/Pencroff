@@ -1,10 +1,7 @@
 # Pencroff
-A meta-indexer for blockchains
+A forever cache/meta-indexer for blockchains
 
-Named after Bonadventure Pencroff from https://en.wikipedia.org/wiki/The_Mysterious_Island.
-
-
-# Development quickstart instructions
+# Development quickstart instructions (testnet)
 
 1. Add scala project at `<root>/ingestor` to IntelliJ. The usual steps of importing a project apply.
 1. Goto docker/kudu and edit the two shell scripts. Set your machine's local ip (The one assigned by your router) there. `start.sh` opens ports in the firewall that are required for database start up using `iptables`. Replace these commands with your favorite FW manager if so required.
