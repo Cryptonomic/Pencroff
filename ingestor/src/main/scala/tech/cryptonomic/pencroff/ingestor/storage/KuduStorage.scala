@@ -186,8 +186,8 @@ final class KuduStorage(config: KuduConfig)
   private def createTable(table: String, columnSchema: List[ColumnSchema], keys: List[String]): Unit = {
     val schema = new Schema(columnSchema.asJava)
     val cto = new CreateTableOptions
-    cto.addHashPartitions(keys.asJava, 32)
-    cto.setNumReplicas(3)
+    cto.addHashPartitions(keys.asJava, 8)
+    cto.setNumReplicas(1)
     client.createTable(table, schema, cto)
     logger.info(s"Created table `$table`")
   }
