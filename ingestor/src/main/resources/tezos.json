@@ -82,12 +82,6 @@
       "pattern": "chains/main/blocks"
     },
     {
-      "name": "invalid_block",
-      "order": 8,
-      "outputs": [],
-      "pattern": "chains/main/invalid_blocks/{hash}"
-    },
-    {
       "name": "is_bootstrapped",
       "order": 9,
       "outputs": [],
