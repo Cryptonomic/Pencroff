@@ -50,6 +50,72 @@
       "outputs": [],
       "pattern": "chains/main/blocks/{hash}/context/contracts/{contracthash}",
       "skip-on-failure": true
+    },
+    {
+      "name": "chain_id",
+      "order": 3,
+      "outputs": [],
+      "pattern":"chains/main/chain_id"
+    },
+    {
+      "name": "checkpoint",
+      "order": 4,
+      "outputs": [],
+      "pattern": "chains/main/checkpoint"
+    },
+    {
+      "name": "invalid_blocks",
+      "order": 5,
+      "outputs": [],
+      "pattern": "chains/main/invalid_blocks"
+    },
+    {
+      "name": "checkpoint",
+      "order": 6,
+      "outputs": [],
+      "pattern": "chains/main/checkpoint"
+    },
+    {
+      "name": "blocks",
+      "order": 7,
+      "outputs": [],
+      "pattern": "chains/main/blocks"
+    },
+    {
+      "name": "invalid_block",
+      "order": 8,
+      "outputs": [],
+      "pattern": "chains/main/invalid_blocks/{hash}"
+    },
+    {
+      "name": "is_bootstrapped",
+      "order": 9,
+      "outputs": [],
+      "pattern": "chains/main/is_bootstrapped"
+    },
+    {
+      "name": "mempool",
+      "order": 10,
+      "outputs": [],
+      "pattern": "chains/main/mempool"
+    },
+    {
+      "name": "user_activated_protocol_overrides",
+      "order": 11,
+      "outputs": [],
+      "pattern": "config/network/user_activated_protocol_overrides"
+    },
+    {
+      "name": "user_activated_upgrades",
+      "order": 12,
+      "outputs": [],
+      "pattern": "config/network/user_activated_upgrades"
+    },
+    {
+      "name": "errors",
+      "order": 13,
+      "outputs": [],
+      "pattern": "errors"
     }
   ]
 }
