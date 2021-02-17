@@ -86,30 +86,6 @@
       "order": 9,
       "outputs": [],
       "pattern": "chains/main/is_bootstrapped"
-    },
-    {
-      "name": "mempool",
-      "order": 10,
-      "outputs": [],
-      "pattern": "chains/main/mempool"
-    },
-    {
-      "name": "user_activated_protocol_overrides",
-      "order": 11,
-      "outputs": [],
-      "pattern": "config/network/user_activated_protocol_overrides"
-    },
-    {
-      "name": "user_activated_upgrades",
-      "order": 12,
-      "outputs": [],
-      "pattern": "config/network/user_activated_upgrades"
-    },
-    {
-      "name": "errors",
-      "order": 13,
-      "outputs": [],
-      "pattern": "errors"
     }
   ]
 }
