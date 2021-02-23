@@ -76,7 +76,7 @@
             "priority",
             "estimated_time"
           ],
-          "name": "priority",
+          "name": "baking_priority",
           "type": "leaf-attribute"
         }
       ],
@@ -86,7 +86,18 @@
     {
       "name": "endorsing_rights",
       "order": 5,
-      "outputs": [],
+      "outputs": [
+        {
+          "attributes": [
+            "level",
+            "delegate",
+            "slots",
+            "estimated_time"
+          ],
+          "name": "endorsing_priority",
+          "type": "leaf-attribute"
+        }
+      ],
       "pattern": "chains/main/blocks/{hash}/helpers/endorsing/rights",
       "skip-on-failure": true
     },
