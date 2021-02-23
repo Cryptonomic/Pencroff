@@ -98,7 +98,7 @@
           "type": "leaf-attribute"
         }
       ],
-      "pattern": "chains/main/blocks/{hash}/helpers/endorsing/rights",
+      "pattern": "chains/main/blocks/{hash}/helpers/endorsing_rights",
       "skip-on-failure": true
     },
     {
