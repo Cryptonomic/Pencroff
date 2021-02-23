@@ -40,6 +40,13 @@
           ],
           "name": "contracthash",
           "type": "leaf-attribute"
+        },
+        {
+          "attributes": [
+            "delegate"
+          ],
+          "name": "delegatehash",
+          "type": "leaf-attribute"
         }
       ],
       "pattern": "chains/main/blocks/{hash}/operations"
@@ -52,40 +59,47 @@
       "skip-on-failure": true
     },
     {
-      "name": "chain_id",
+      "name": "delegate",
       "order": 3,
       "outputs": [],
-      "pattern":"chains/main/chain_id"
+      "pattern":"chains/main/blocks/{hash}/context/delegates/{delegatehash}",
+      "skip-on-failure": true
     },
     {
-      "name": "checkpoint",
+      "name": "baking_rights",
       "order": 4,
       "outputs": [],
-      "pattern": "chains/main/checkpoint"
+      "pattern": "chains/main/blocks/{hash}/helpers/baking_rights"
     },
     {
-      "name": "invalid_blocks",
+      "name": "endorsing_rights",
       "order": 5,
       "outputs": [],
-      "pattern": "chains/main/invalid_blocks"
+      "pattern": "chains/main/blocks/{hash}/helpers/endorsing/rights"
     },
     {
-      "name": "checkpoint",
+      "name": "ballot_list",
       "order": 6,
       "outputs": [],
-      "pattern": "chains/main/checkpoint"
+      "pattern": "chains/main/blocks/{hash}/votes/ballot_list"
     },
     {
-      "name": "blocks",
+      "name": "current_proposal",
       "order": 7,
       "outputs": [],
-      "pattern": "chains/main/blocks"
+      "pattern": "chains/main/blocks/{hash}/votes/current_proposal"
     },
     {
-      "name": "is_bootstrapped",
+      "name": "current_quorum",
+      "order": 8,
+      "outputs": [],
+      "pattern": "chains/main/blocks/{hash}/votes/current_quorum"
+    },
+    {
+      "name": "listings",
       "order": 9,
       "outputs": [],
-      "pattern": "chains/main/is_bootstrapped"
+      "pattern": "chains/main/blocks/{hash}/votes/listings"
     }
   ]
 }
