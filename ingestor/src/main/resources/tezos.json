@@ -94,25 +94,29 @@
       "name": "ballot_list",
       "order": 6,
       "outputs": [],
-      "pattern": "chains/main/blocks/{hash}/votes/ballot_list"
+      "pattern": "chains/main/blocks/{hash}/votes/ballot_list",
+      "skip-on-failure": true
     },
     {
       "name": "current_proposal",
       "order": 7,
       "outputs": [],
-      "pattern": "chains/main/blocks/{hash}/votes/current_proposal"
+      "pattern": "chains/main/blocks/{hash}/votes/current_proposal",
+      "skip-on-failure": true
     },
     {
       "name": "current_quorum",
       "order": 8,
       "outputs": [],
-      "pattern": "chains/main/blocks/{hash}/votes/current_quorum"
+      "pattern": "chains/main/blocks/{hash}/votes/current_quorum",
+      "skip-on-failure": true
     },
     {
       "name": "listings",
       "order": 9,
       "outputs": [],
-      "pattern": "chains/main/blocks/{hash}/votes/listings"
+      "pattern": "chains/main/blocks/{hash}/votes/listings",
+      "skip-on-failure": true
     }
   ]
 }
