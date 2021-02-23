@@ -80,13 +80,15 @@
           "type": "leaf-attribute"
         }
       ],
-      "pattern": "chains/main/blocks/{hash}/helpers/baking_rights"
+      "pattern": "chains/main/blocks/{hash}/helpers/baking_rights",
+      "skip-on-failure": true
     },
     {
       "name": "endorsing_rights",
       "order": 5,
       "outputs": [],
-      "pattern": "chains/main/blocks/{hash}/helpers/endorsing/rights"
+      "pattern": "chains/main/blocks/{hash}/helpers/endorsing/rights",
+      "skip-on-failure": true
     },
     {
       "name": "ballot_list",
