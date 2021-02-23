@@ -86,18 +86,7 @@
     {
       "name": "endorsing_rights",
       "order": 5,
-      "outputs": [
-        {
-          "attributes": [
-            "level",
-            "delegate",
-            "slots",
-            "estimated_time"
-          ],
-          "name": "endorsing_priority",
-          "type": "leaf-attribute"
-        }
-      ],
+      "outputs": [],
       "pattern": "chains/main/blocks/{hash}/helpers/endorsing_rights",
       "skip-on-failure": true
     },
