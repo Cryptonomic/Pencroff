@@ -68,7 +68,18 @@
     {
       "name": "baking_rights",
       "order": 4,
-      "outputs": [],
+      "outputs": [
+        {
+          "attributes": [
+            "level",
+            "delegate",
+            "priority",
+            "estimated_time"
+          ],
+          "name": "priority",
+          "type": "leaf-attribute"
+        }
+      ],
       "pattern": "chains/main/blocks/{hash}/helpers/baking_rights"
     },
     {
