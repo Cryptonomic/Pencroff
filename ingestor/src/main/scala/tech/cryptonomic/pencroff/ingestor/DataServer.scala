@@ -82,7 +82,6 @@ object DataServer extends App with LazyLogging {
     } yield response
 
   def manageTilde(url: String): String = {
-
     val splitUrl = url.split("/")
     val blockIndex = splitUrl.indexOf("blocks")
     val blocks = splitUrl(blockIndex + 1)
