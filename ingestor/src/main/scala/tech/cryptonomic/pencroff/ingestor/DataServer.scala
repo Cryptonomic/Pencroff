@@ -95,7 +95,7 @@ object DataServer extends App with LazyLogging {
     } else if("[0-9]+".r.matches(block)) {
       splitUrl(blockIndex + 1) = (block.toLong - blockOffset).toString
     } else {
-      splitUrl(blockIndex + 1) = (checkWithAlias("tezos/chains/main/blocks/" + block).unsafeRunSync().height - blockOffset).toString
+      splitUrl(blockIndex + 1) = (getDataFromStorage("tezos/chains/main/blocks/" + block).unsafeRunSync().height - blockOffset).toString
     }
 
     splitUrl.mkString("/")
