@@ -17,6 +17,7 @@ import tech.cryptonomic.pencroff.ingestor.utils.BuiltInHashUtil
 
 import java.util.concurrent.Executors
 import scala.concurrent.ExecutionContext
+import scala.util.Try
 
 /** Provides an HTTP service for clients to hit.
   * URLs are treated as keys and are looked up into the database.
@@ -88,9 +89,7 @@ object DataServer extends App with LazyLogging {
     if(!blocks.contains("~")) return url
 
     val block = blocks.split("~")(0)
-    var blockOffset = blocks.split("~")(1).toLong
-
-    if(blocks.split("~")(1) == "") blockOffset = 0
+    var blockOffset = Try(blocks.split("~")(1).toLong).getOrElse(0L)
 
     if(block == "head") {
       splitUrl(blockIndex + 1) = (storage.getMetaData().unsafeRunSync().height - blockOffset).toString
