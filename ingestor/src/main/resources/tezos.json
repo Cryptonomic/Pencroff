@@ -144,13 +144,6 @@
       "aliases": [
         "chains/main/blocks/{height}/votes/listings"
       ]
-    },
-    {
-      "name": "blocks",
-      "order": 10,
-      "outputs": [],
-      "pattern": "chains/main/blocks",
-      "skip-on-failure": true
     }
   ]
 }
