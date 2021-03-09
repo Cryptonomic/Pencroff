@@ -122,7 +122,7 @@
       "pattern": "chains/main/blocks/{hash}/votes/current_proposal",
       "skip-on-failure": true,
       "aliases": [
-        "chains/main/blocks/{height}/votes/ballot_list"
+        "chains/main/blocks/{height}/votes/current_proposal"
       ]
     },
     {
