@@ -138,14 +138,7 @@
     {
       "name": "listings",
       "order": 9,
-      "outputs": [
-        {
-          "attributes": [
-            "pkh",
-            "rolls"
-          ]
-        }
-      ],
+      "outputs": [],
       "pattern": "chains/main/blocks/{hash}/votes/listings",
       "skip-on-failure": true,
       "aliases": [
