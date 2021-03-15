@@ -112,7 +112,7 @@ object DataServer extends App with LazyLogging {
       IO.shift *>
         //IO(logger.info(s"Fetching data for `$key`")) *>
         toResponse(key).handleErrorWith(
-          t => NotFound(s"`$key` not found. Error was ${t.getMessage}")
+          t => NotFound("")
         ) //TODO: Don't spit out errors
   }
 
