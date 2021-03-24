@@ -1,12 +1,14 @@
 # Pencroff
 A forever cache/meta-indexer for blockchains.
 
+_Note: This is experimental and work in progress and should not be deployed to production without understanding what it is._
+
 # What is Pencroff?
 In order to run a block indexer, multiple queries need to be run against a blockchain node in order to pull all of the necessary data needed. However, most blockchain nodes are currently a single-threaded application which makes it less ideal for fast, rapid query performance. 
 
 Pencroff is the solution! It syncs off of supported blockchain nodes, and stores necessary endpoint data to replicate the node's functionality. It uses a hash map and multi-threaded performance to make syncing block indexers much faster than a regular node!
 
-Check out the wiki for more information on the project, and how to run and use it!
+Check out the [wiki](https://github.com/Cryptonomic/Pencroff/wiki) for more information on the project, and how to run and use it!
 
 # Early Load Test Results
 
