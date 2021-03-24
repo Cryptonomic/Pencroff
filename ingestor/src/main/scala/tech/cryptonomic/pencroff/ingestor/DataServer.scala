@@ -89,7 +89,7 @@ object DataServer extends App with LazyLogging {
     if(!blocks.contains("~")) return url
 
     val block = blocks.split("~")(0)
-    var blockOffset = Try(blocks.split("~")(1).toLong).getOrElse(0L)
+    val blockOffset = Try(blocks.split("~")(1).toLong).getOrElse(0L)
 
     if(block == "head") {
       splitUrl(blockIndex + 1) = (storage.getMetaData().unsafeRunSync().height - blockOffset).toString
