@@ -1,17 +1,14 @@
 # Pencroff
-A forever cache/meta-indexer for blockchains. This is experimental and work in progress and should not be deployed to production without understanding what it is.
+A forever cache/meta-indexer for blockchains.
 
-# Development quickstart instructions (testnet)
+_Note: This is experimental and work in progress and should not be deployed to production without understanding what it is._
 
-1. Add scala project at `<root>/ingestor` to IntelliJ. The usual steps of importing a project apply.
-1. Goto docker/kudu and edit the two shell scripts. Set your machine's local ip (The one assigned by your router) there. `start.sh` opens ports in the firewall that are required for database start up using `iptables`. Replace these commands with your favorite FW manager if so required.
-1. Run `start.sh` to start kudu.
-1. Open `<root>/ingestor/src/main/resources/reference.conf` in an editor. Set the `host`, `port` and `protocol` config items to point to a tezos node of your choice. Edit nothing else.
-1. In IntelliJ, run `BlockIngestor.scala`. It should automatically create the necessary tables and start ingesting data from the node you specified in the previous step.
-1. After a while in IntelliJ, run `DataServer.scala`. This runs a HTTP server that mimics the node's api. Note that all urls to this have a prefix to them, currently hard coded to `tezos`.
-1. Open postman, run the following queries `localhost:8080/tezos/chains/main/blocks/0` and `localhost:8080/tezos/chains/main/blocks/BLockGenesisGenesisGenesisGenesisGenesisd6f5afWyME7`. You should see identical output from these. Compare to the output from your configured tezos node. If everything matches you are good to start developing.
-1. See `ingestor/src/main/resources/tezos.json` for the model that the Ingestor is using to fetch data using.
+# What is Pencroff?
+In order to run a block indexer, multiple queries need to be run against a blockchain node in order to pull all of the necessary data needed. However, most blockchain nodes are currently a single-threaded application which makes it less ideal for fast, rapid query performance. 
 
+Pencroff is the solution! It syncs off of supported blockchain nodes, and stores necessary endpoint data to replicate the node's functionality. It uses a hash map and multi-threaded performance to make syncing block indexers much faster than a regular node!
+
+Check out the [wiki](https://github.com/Cryptonomic/Pencroff/wiki) for more information on the project, and how to run and use it!
 
 # Early Load Test Results
 
