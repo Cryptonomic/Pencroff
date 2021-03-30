@@ -1,2 +1,8 @@
 *.class
 *.log
+*/target
+*/tmp
+target
+.idea
+.attach_*
+
