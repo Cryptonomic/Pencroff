@@ -1,26 +1,23 @@
 package tech.cryptonomic.pencroff.ingestor
 
-import java.util.concurrent.Executors
-
 import cats.data.NonEmptyList
 import cats.effect._
 import com.typesafe.scalalogging.LazyLogging
-import org.http4s.{Header, HttpRoutes, MediaType, ParseResult}
-import org.http4s.dsl.impl.Root
+import org.http4s.CacheDirective.`no-cache`
 import org.http4s.dsl.io._
 import org.http4s.headers.{`Cache-Control`, `Content-Type`}
-import org.http4s.CacheDirective.`no-cache`
 import org.http4s.implicits._
 import org.http4s.server.Router
 import org.http4s.server.blaze._
-import pureconfig.generic.auto._
+import org.http4s.{Header, HttpRoutes, MediaType}
 import pureconfig.ConfigSource
-import tech.cryptonomic.pencroff.ingestor.model.IngestorTypes.Record
 import tech.cryptonomic.pencroff.ingestor.storage.StorageBase.{RecordNotFoundException, StorageNotInitializedException}
 import tech.cryptonomic.pencroff.ingestor.storage.{KuduConfig, KuduStorage}
 import tech.cryptonomic.pencroff.ingestor.utils.BuiltInHashUtil
 
+import java.util.concurrent.Executors
 import scala.concurrent.ExecutionContext
+import scala.util.Try
 
 /** Provides an HTTP service for clients to hit.
   * URLs are treated as keys and are looked up into the database.
@@ -85,13 +82,37 @@ object DataServer extends App with LazyLogging {
       )
     } yield response
 
+  def manageTilde(url: String): String = {
+    val splitUrl = url.split("/")
+    val blockIndex = splitUrl.indexOf("blocks")
+    val blocks = splitUrl(blockIndex + 1)
+    if(!blocks.contains("~")) return url
+
+    val block = blocks.split("~")(0)
+    val blockOffset = Try(blocks.split("~")(1).toLong).getOrElse(0L)
+
+    if(block == "head") {
+      splitUrl(blockIndex + 1) = (storage.getMetaData().unsafeRunSync().height - blockOffset).toString
+    } else if("[0-9]+".r.matches(block)) {
+      splitUrl(blockIndex + 1) = (block.toLong - blockOffset).toString
+    } else if("B[0-9a-zA-Z]+".r.matches(block)) {
+      splitUrl(blockIndex + 1) = (getDataFromStorage(s"chains/main/blocks/${block}").unsafeRunSync().height - blockOffset).toString
+    }
+
+    splitUrl.mkString("/")
+  }
+
+
   val lookupService = HttpRoutes.of[IO] {
     case GET -> "tezos" /: keyAsPath =>
-      val key = keyAsPath.toList.mkString("/")
+      var key = keyAsPath.toList.mkString("/")
+      if(key.contains("~")) {
+        key = manageTilde(key)
+      }
       IO.shift *>
         //IO(logger.info(s"Fetching data for `$key`")) *>
         toResponse(key).handleErrorWith(
-          t => NotFound(s"`$key` not found. Error was ${t.getMessage}")
+          t => NotFound("")
         ) //TODO: Don't spit out errors
   }
 

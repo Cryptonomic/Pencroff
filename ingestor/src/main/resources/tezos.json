@@ -40,16 +40,110 @@
           ],
           "name": "contracthash",
           "type": "leaf-attribute"
+        },
+        {
+          "attributes": [
+            "delegate"
+          ],
+          "name": "delegatehash",
+          "type": "leaf-attribute"
         }
       ],
-      "pattern": "chains/main/blocks/{hash}/operations"
+      "pattern": "chains/main/blocks/{hash}/operations",
+      "aliases": [
+        "chains/main/blocks/{height}/operations"
+      ]
     },
     {
       "name": "contract",
       "order": 2,
       "outputs": [],
       "pattern": "chains/main/blocks/{hash}/context/contracts/{contracthash}",
+      "aliases": [
+        "chains/main/blocks/{height}/context/contracts/{contracthash}"
+      ],
       "skip-on-failure": true
+    },
+    {
+      "name": "delegate",
+      "order": 3,
+      "outputs": [],
+      "pattern":"chains/main/blocks/{hash}/context/delegates/{delegatehash}",
+      "skip-on-failure": true,
+      "aliases": [
+        "chains/main/blocks/{height}/context/delegates/{delegatehash}"
+      ]
+    },
+    {
+      "name": "baking_rights",
+      "order": 4,
+      "outputs": [
+        {
+          "attributes": [
+            "level",
+            "delegate",
+            "priority",
+            "estimated_time"
+          ],
+          "name": "baking_priority",
+          "type": "leaf-attribute"
+        }
+      ],
+      "pattern": "chains/main/blocks/{hash}/helpers/baking_rights",
+      "skip-on-failure": true,
+      "aliases": [
+        "chains/main/blocks/{height}/helpers/baking_rights"
+      ]
+    },
+    {
+      "name": "endorsing_rights",
+      "order": 5,
+      "outputs": [],
+      "pattern": "chains/main/blocks/{hash}/helpers/endorsing_rights",
+      "skip-on-failure": true,
+      "aliases": [
+        "chains/main/blocks/{height}/helpers/endorsing_rights"
+      ]
+    },
+    {
+      "name": "ballot_list",
+      "order": 6,
+      "outputs": [],
+      "pattern": "chains/main/blocks/{hash}/votes/ballot_list",
+      "skip-on-failure": true,
+      "aliases": [
+        "chains/main/blocks/{height}/votes/ballot_list"
+      ]
+    },
+    {
+      "name": "current_proposal",
+      "order": 7,
+      "outputs": [],
+      "pattern": "chains/main/blocks/{hash}/votes/current_proposal",
+      "skip-on-failure": true,
+      "aliases": [
+        "chains/main/blocks/{height}/votes/current_proposal"
+      ]
+    },
+    {
+      "name": "current_quorum",
+      "order": 8,
+      "outputs": [],
+      "pattern": "chains/main/blocks/{hash}/votes/current_quorum",
+      "skip-on-failure": true,
+      "aliases": [
+        "chains/main/blocks/{height}/votes/current_quorum"
+      ]
+    },
+    {
+      "name": "listings",
+      "order": 9,
+      "outputs": [],
+      "pattern": "chains/main/blocks/{hash}/votes/listings",
+      "skip-on-failure": true,
+      "aliases": [
+        "chains/main/blocks/{height}/votes/listings"
+      ]
     }
   ]
 }
